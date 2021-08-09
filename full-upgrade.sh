@@ -1,4 +1,4 @@
 sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get dist-upgrade
-sudo apt full-upgrade
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
+sudo apt full-upgrade -y
