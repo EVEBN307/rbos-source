@@ -1,0 +1,95 @@
+isroot="n"
+deftree="main"
+scriptfile=""
+
+
+execute_code() {
+	
+	fullurl="https://raw.githubusercontent.com/EVEBN307/rbos-source/$deftree/$scriptfile.sh"
+	echo "$fullurl"
+	
+	if [ "$isroot" = "y" ];
+	then
+		wget -O - "$fullurl" | sudo bash
+	fi
+	if [ "$isroot" = "n" ];
+	then
+		wget -O - "$fullurl" | bash
+	fi
+}
+
+no_params_execute() {
+fullurl="https://raw.githubusercontent.com/EVEBN307/rbos-source/$deftree/$scriptfile.sh"
+	wget -O - "$fullurl" | bash
+}
+
+exnternal_url_execute() {
+fullurl="$scriptfile"
+	echo "Never use this function unless you sure what you are doing!"
+	echo "however it's all depends on your choice, but please be carefull"
+	echo "never trust unkown url-sources!"
+	echo "----[YeS/No]----"
+	
+	read -p "Are you sure about this?" yn
+	case $yn in
+		YeS) wget -O - "$fullurl" | bash ;;
+		*) echo "Aborted!";;
+	esac
+
+	#wget -O - "$fullurl" | bash
+}
+
+if [ -z "$1" ]
+	then
+
+		echo "ZyntaxLab(C) Read Bash Online Script v2.0"
+		echo "type 'zyntax-rbos --help' to get more info"
+fi
+
+
+show_help() {
+	echo "ZyntaxLab(C) Read Bash Online Scipt v2.0"
+	echo "\tusage: 'zyntax-rbos script-name [option]'\n"
+	echo "Using this command with only script name supplied will always download from the
+'Main' trees and execute it afterwards"
+	echo "\texample: 'zyntax-rbos --no-params script-name'\n"
+
+	echo "[Options]:"
+	echo "\t-r y|n: Specify root privilage {default no}"
+	echo "\t-t 'trees name': Specify the trees working area on GitHub {default: Main}"
+	echo "\t-s 'script-name: Specify the target script to being downloaded and executed"
+	echo "\texample: 'zyntax-rbos [options | -r-t-s] --run\n\n"
+
+	echo "this program are legally shared under ZyntaxLab(c) names"
+	echo "this program are legally modified by including ZyntaxLab(c) names inside the codes"
+	echo "ZyntaxLab(c) are part of Biner Software Corp(c)(r)(tm)"
+
+}
+
+# idiomatic parameter and option handling in sh
+while test $# -gt 0
+do
+    case "$1" in
+	    --help) show_help
+            ;;
+    --no-params) scriptfile="$2" no_params_execute
+	    ;;
+	    --external-url) scriptfile="$2" exnternal_url_execute
+	    ;;
+       	--run) execute_code
+            ;;
+        --*) echo "bad option $1"
+            ;;
+    -r) isroot="$2"
+	    ;;
+    -t) deftree="$2"
+	    ;;
+    -s) scriptfile="$2"
+	    ;;
+        #*) execute_code
+         #   ;;
+    esac
+    shift
+done
+
+exit 0
