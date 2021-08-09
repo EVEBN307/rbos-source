@@ -1,5 +1,5 @@
-sudo apt-get install bash-completion
-sudo apt-get install --reinstall bash-completion
+sudo apt-get install bash-completion -y
+sudo apt-get install --reinstall bash-completion -y
 
 echo if ! shopt -oq posix; then >> ~/.bashrc
 echo  if [ -f /usr/share/bash-completion/bash_completion ]; then >> ~/.bashrc
