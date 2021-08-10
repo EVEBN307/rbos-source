@@ -48,21 +48,21 @@ fi
 
 
 show_help() {
-	echo "ZyntaxLab(C) Read Bash Online Scipt v2.0"
-	echo "\tusage: 'zyntax-rbos script-name [option]'\n"
-	echo "Using this command with only script name supplied will always download from the
+	echo -e "ZyntaxLab(C) Read Bash Online Scipt v2.0"
+	echo -e "\tusage: 'zyntax-rbos script-name [option]'\n"
+	echo -e "Using this command with only script name supplied will always download from the
 'Main' trees and execute it afterwards"
-	echo "\texample: 'zyntax-rbos --no-params script-name'\n"
+	echo -e "\texample: 'zyntax-rbos --no-params script-name'\n"
 
-	echo "[Options]:"
-	echo "\t-r y|n: Specify root privilage {default no}"
-	echo "\t-t 'trees name': Specify the trees working area on GitHub {default: Main}"
-	echo "\t-s 'script-name: Specify the target script to being downloaded and executed"
-	echo "\texample: 'zyntax-rbos [options | -r-t-s] --run\n\n"
+	echo -e "[Options]:"
+	echo -e "\t-r y|n: Specify root privilage {default no}"
+	echo -e "\t-t 'trees name': Specify the trees working area on GitHub {default: Main}"
+	echo -e "\t-s 'script-name: Specify the target script to being downloaded and executed"
+	echo -e "\texample: 'zyntax-rbos [options | -r-t-s] --run\n\n"
 
-	echo "this program are legally shared under ZyntaxLab(c) names"
-	echo "this program are legally modified by including ZyntaxLab(c) names inside the codes"
-	echo "ZyntaxLab(c) are part of Biner Software Corp(c)(r)(tm)"
+	echo -e "this program are legally shared under ZyntaxLab(c) names"
+	echo -e "this program are legally modified by including ZyntaxLab(c) names inside the codes"
+	echo -e "ZyntaxLab(c) are part of Biner Software Corp(c)(r)(tm)"
 
 }
 
